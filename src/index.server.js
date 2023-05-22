@@ -17,15 +17,15 @@ const addressRoutes = require("./routes/address");
 const orderRoutes = require("./routes/order");
 const adminOrderRoute = require("./routes/admin/order.routes");
 const stripe = require("./routes/stripe");
-
+require("dotenv").config({path:'./.env.example'});
 //environment variable or you can say constants
-env.config();
+
 
 // mongodb connectio
 //mongodb+srv://root:<password>@cluster0.8pl1w.mongodb.net/<dbname>?retryWrites=true&w=majorit
 mongoose
   .connect(
-    `mongodb+srv://dilshan:dilshan123@cluster0.rmyjv02.mongodb.net/flipkart?retryWrites=true&w=majority`,
+    process.env.MONGO_CONNECT,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
